@@ -1,0 +1,19 @@
+<% if  Setting['timespan_format'] %>
+  <link href="//cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css"  rel="stylesheet">
+  <script src="//cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+        var timepicker = new TimePicker(['time_entry_hours'], {
+            theme: 'blue-grey', // or 'blue-grey' or 'dark'
+            lang: 'en', // 'en', 'pt' for now
+        });
+        timepicker.on('change', function(evt) {
+            console.info(evt);
+
+            var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+            evt.element.value = value;
+        });
+    })
+  </script>
+<% end  %>
