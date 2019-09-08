@@ -9,4 +9,5 @@ end
 
 class TimeFieldHooks < Redmine::Hook::ViewListener
   render_on :view_timelog_edit_form_bottom, partial: 'timelog/add_timepicker'
+  render_on :view_issues_edit_notes_bottom, partial: 'timelog/add_timepicker'
 end
