@@ -1,7 +1,4 @@
-$(document).ready(function(){
-    jQuery('<div class="times-nav"><div class="times-button times-up">+</div><div class="times-button times-down">-</div></div>').insertAfter('.times-minutes input');
-    jQuery('<div class="times-nav"><div class="times-button times-up">+</div><div class="times-button times-down">-</div></div>').insertBefore('.times-hours input');
-
+function initbtnUpbtnDown(){
     jQuery('.times').each(function() {
 
         var spinner = jQuery(this),
@@ -16,6 +13,7 @@ $(document).ready(function(){
 
             max = input.attr('max');
 
+        btnUp.off()
         btnUp.click(function() {
 
             data_increment = parseInt(input.data('increment'))
@@ -36,7 +34,7 @@ $(document).ready(function(){
             spinner.find("input").trigger("change");
 
         });
-
+        btnDown.off()
         btnDown.click(function() {
 
             var oldValue = parseFloat(input.val());
@@ -56,7 +54,10 @@ $(document).ready(function(){
             spinner.find("input").trigger("change");
 
         });
-
-    });
-
+});
+}
+$(document).ready(function(){
+    jQuery('<div class="times-nav"><div class="times-button times-up">+</div><div class="times-button times-down">-</div></div>').insertAfter('.times-minutes input');
+    jQuery('<div class="times-nav"><div class="times-button times-up">+</div><div class="times-button times-down">-</div></div>').insertBefore('.times-hours input');
+    initbtnUpbtnDown()
 })
