@@ -1,10 +1,9 @@
 <span id="time_entry_hours_div">
   <span class="times times-hours">
-
     <input class='times_hours_input' type="number" min="0" max="23" step="1" value="<%= @time_entry.hours.to_f.floor %>" data-increment="1">
   </span>
   <span class="times times-minutes">
-    <input class='times_minutes_input' type="number" min="0" max="59" step="1" value="<%= ((@time_entry.hours.to_f - @time_entry.hours.to_f.floor ) * 60).round %>"  data-increment="5">
+    <input class='times_minutes_input' type="number" min="0" max="59" step="1" value="<%= ((@time_entry.hours.to_f - @time_entry.hours.to_f.floor ) * 60).round %>"  data-increment="15">
   </span>
 </span>
 
@@ -12,8 +11,20 @@
 <%= stylesheet_link_tag 'style.css', plugin: 'redmine_time_entry_timepicker' %>
 <script>
     $(function(){
-        $('.times_hours_input, .times_minutes_input').on('change keyup', function(){
+        $('.times_hours_input').on('change keyup', function(){
             $('#time_entry_hours').val(parseInt($('.times_hours_input').val()) + ':' + parseInt($('.times_minutes_input').val()))
+        })
+         $('.times_minutes_input').on('change keyup', function(){
+             value = parseInt($(this).val())
+             if( value >= 60)
+             {
+                 $(this).val(value%60);
+                 $('.times_hours_input').val(parseInt($('.times_hours_input').val()) + parseInt(value / 60) )
+                 $('.times_hours_input').trigger('change')
+             }
+             else
+                 $('#time_entry_hours').val(parseInt($('.times_hours_input').val()) + ':' + parseInt($('.times_minutes_input').val()))
+
         })
         $('#time_entry_hours_div').detach().insertAfter($('#time_entry_hours'))
     })

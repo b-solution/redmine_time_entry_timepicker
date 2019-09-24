@@ -57,7 +57,7 @@ function initbtnUpbtnDown(){
 });
 }
 $(document).ready(function(){
-    jQuery('<div class="times-nav"><div class="times-button times-up">+</div><div class="times-button times-down">-</div></div>').insertAfter('.times-minutes input');
-    jQuery('<div class="times-nav"><div class="times-button times-up">+</div><div class="times-button times-down">-</div></div>').insertBefore('.times-hours input');
+    jQuery('<div class="times-nav"><div class="times-button times-up"><img src="/images/sort_asc.png" /></div><div class="times-button times-down"><img src="/images/sort_desc.png" /></div></div>').insertAfter('.times-minutes input');
+    jQuery('<div class="times-nav"><div class="times-button times-up"><img src="/images/sort_asc.png" /></div><div class="times-button times-down"><img src="/images/sort_desc.png" /></div></div>').insertBefore('.times-hours input');
     initbtnUpbtnDown()
 })
