@@ -17,7 +17,7 @@ function initbtnUpbtnDown(){
         btnUp.click(function() {
 
             data_increment = parseInt(input.data('increment'))
-            var oldValue = parseFloat(input.val());
+            var oldValue = parseFloat(input.val()) || 0;
 
             if (oldValue >= max) {
 
@@ -37,7 +37,7 @@ function initbtnUpbtnDown(){
         btnDown.off()
         btnDown.click(function() {
 
-            var oldValue = parseFloat(input.val());
+            var oldValue = parseFloat(input.val()) || 0;
             data_increment = parseInt(input.data('increment'))
             if (oldValue <= min) {
 
