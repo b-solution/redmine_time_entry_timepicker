@@ -28,9 +28,13 @@ function initbtnUpbtnDown(){
                 var newVal = oldValue + data_increment;
 
             }
-
-            spinner.find("input").val(newVal);
-
+            if(newVal !== '0:0')
+            {
+                spinner.find("input").val(newVal);
+            }
+            else {
+                spinner.find("input").val('');
+            }
             spinner.find("input").trigger("change");
 
         });
@@ -49,9 +53,13 @@ function initbtnUpbtnDown(){
 
             }
 
-            spinner.find("input").val(newVal);
-
-            spinner.find("input").trigger("change");
+            if(newVal !== '0:0')
+            {
+                spinner.find("input").val(newVal);
+            }
+            else {
+                spinner.find("input").val('');
+            }
 
         });
 });
